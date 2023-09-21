@@ -1,16 +1,21 @@
-<script>
-	import { velos } from '../api/velos';
-	import { calculateTotal } from './calcul';
+<script lang="ts">
+	export let data;
 
-	let selectedBikes = {};
-	function updateTotal() {
-		return calculateTotal(selectedBikes);
-	}
+	let itemCounts = {};
+	//import { Products } from 'lib/server/Products';
 
-	function reserveBike(bikeId) {
-		// Mettez à jour selectedBikes ici, par exemple, en augmentant la quantité
-		selectedBikes = { ...selectedBikes, [bikeId]: (selectedBikes[bikeId] || 0) + 1 };
-	}
+	//import { bikes } from '../api/bikes';
+	//import { calculateTotal } from './calcul';
+
+	//let selectedBikes = {};
+	//function updateTotal() {
+	//	return calculateTotal(selectedBikes);
+	//}
+
+	//function reserveBike(bikeId) {
+	// Mettez à jour selectedBikes ici, par exemple, en augmentant la quantité
+	//	selectedBikes = { ...selectedBikes, [bikeId]: (selectedBikes[bikeId] || 0) + 1 };
+	//	}
 </script>
 
 <svelte:head>
@@ -37,12 +42,12 @@
 <main>
 	<div class="background-image" />
 	<div class="bike-list">
-		{#each velos as bike (bike.id)}
+		{#each data.Products as bike (bike.id)}
 			<div class="bike-card">
 				<img class="bike-image" src={bike.image} alt={bike.name} />
 				<h2 class="bike-name">{bike.name}</h2>
 				<p class="bike-price">Prix par jour : {bike.price} €</p>
-				<input
+				<!-- <input
 					class="bike-input"
 					type="number"
 					value={selectedBikes[bike.id] || 0}
@@ -50,15 +55,15 @@
 						selectedBikes = { ...selectedBikes, [bike.id]: +event.target.value };
 					}}
 					min="0"
-				/>
+				/> -->
 				<!-- Ajout du bouton de réservation -->
 				<button class="reserve-button" on:click={() => {}}> Réserver </button>
 			</div>
 		{/each}
 	</div>
-	<div class="total">
+	<!-- <div class="total">
 		<h3>Total à payer : {updateTotal()} €</h3>
-	</div>
+	</div> -->
 </main>
 
 <style>
@@ -77,10 +82,12 @@
 	.banner p {
 		font-size: 16px; /* Taille de la police pour le texte descriptif */
 	}
-
+	.btn {
+		color: #ff5733; /* Changer la couleur du texte en rouge (#ff5733) ou une autre couleur de votre choix */
+	}
 	/* Styles pour la page principale */
 	main {
-		background-image: url('/src/routes/images/tenteLuxe.jpg'); /* Remplacez 'chemin/vers/votre/image.jpg' par le chemin de votre image */
+		background-image: url('/images/tenteLuxe.jpg'); /* Remplacez 'chemin/vers/votre/image.jpg' par le chemin de votre image */
 		background-size: cover; /* Assurez-vous que l'image couvre tout l'arrière-plan */
 		background-repeat: no-repeat; /* Empêchez l'image de se répéter */
 		background-attachment: fixed; /* Fixez l'image pour qu'elle reste en arrière-plan lorsque vous faites défiler la page */
@@ -95,12 +102,13 @@
 	}
 
 	.bike-card {
+		background-color: rgba(144, 238, 144, 0.2);
 		flex: 0 0 calc(25% - 16px); /* Largeur de 25% avec une marge de 8px de chaque côté */
 		margin: 8px; /* Marge autour de chaque carte */
 		border: 1px solid #e0e0e0;
 		border-radius: 8px;
 		padding: 16px;
-		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 4px 6px rgba(206, 12, 12, 0.427);
 		transition: transform 0.2s;
 		display: flex;
 		flex-direction: column; /* Empiler le contenu verticalement */
@@ -119,13 +127,14 @@
 	.bike-name {
 		font-size: 18px;
 		font-weight: bold;
+		color: #ff5733;
 		margin: 12px 0;
 	}
 
 	/* Styles pour le prix du vélo */
 	.bike-price {
 		font-size: 16px;
-		color: #ff5733; /* Couleur du prix */
+		color: #00ec53; /* Couleur du prix */
 		margin-bottom: 12px;
 	}
 

@@ -22,16 +22,23 @@
 	<section class="services">
 		<h2>Nos Services</h2>
 		<div class="service">
-			<img src="src/routes/images/tenteLuxe.jpg" alt="Matériel de Camping" />
+			<img src="/images/tenteLuxe.jpg" alt="Matériel de Camping" />
 			<h3>Matériel de Camping</h3>
 			<p>Nous fournissons tout l'équipement nécessaire pour votre séjour en camping.</p>
+			<div class="service">
+				<img src="/images/velobafang.webp" alt="Vélos electriques" />
+				<h3>location de vélos electriques</h3>
+				<p>Nous fournissons tout l'équipement nécessaire pour votre séjour en camping.</p>
+			</div>
+			<div class="service">
+				<img src="/images/planche-apéro-gourmande-980x980.jpg" alt="Planche Apéro" />
+				<h3>Planche Apéro</h3>
+				<p>
+					Profitez d'une planche apéro pour une arrivée gourmande à chaque étape de votre séjour.
+				</p>
+			</div>
+			<!-- Ajoutez d'autres services ici -->
 		</div>
-		<div class="service">
-			<img src="src/routes/images/planche-apéro-gourmande-980x980.jpg" alt="Planche Apéro" />
-			<h3>Planche Apéro</h3>
-			<p>Profitez d'une planche apéro pour une arrivée gourmande à chaque étape de votre séjour.</p>
-		</div>
-		<!-- Ajoutez d'autres services ici -->
 	</section>
 </main>
 
@@ -55,7 +62,7 @@
 
 	/* Styles pour la section Hero */
 	.hero {
-		background-image: url('/src/routes/images/tenteLuxe.jpg');
+		background-image: url('/images/tenteLuxe.jpg');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -80,7 +87,7 @@
 	.services {
 		margin-top: 40px;
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		flex-wrap: wrap;
 	}
 

@@ -1,26 +1,25 @@
-<script>
-	// Importez vos données aliments
-	import { food } from '../api/food';
+<script lang="ts">
+	export let data;
 
 	let itemCounts = {};
 
-	function incrementCount(id) {
-		if (!itemCounts[id]) {
-			itemCounts[id] = 1;
-		} else {
-			itemCounts[id]++;
-		}
-	}
-	function picnicTotal() {
-		let total = 0;
-		for (const id in itemCounts) {
-			const aliment = food.find((item) => item.id === id);
-			if (aliment) {
-				total += aliment.price * itemCounts[id];
-			}
-		}
-		return total;
-	}
+	// function incrementCount(id) {
+	// 	if (!itemCounts[id]) {
+	// 		itemCounts[id] = 1;
+	// 	} else {
+	// 		itemCounts[id]++;
+	// 	}
+	// }
+	// function picnicTotal() {
+	// 	let total = 0;
+	// 	for (const id in itemCounts) {
+	// 		const aliment = food.find((item) => item.id === id);
+	// 		if (aliment) {
+	// 			total += aliment.price * itemCounts[id];
+	// 		}
+	// 	}
+	// 	return total;
+	// }
 </script>
 
 <svelte:head>
@@ -35,17 +34,17 @@
 	</p>
 	<div class="background-image" />
 	<div class="aliments-list">
-		{#each food as aliment (aliment.id)}
+		{#each data.Products as aliment (aliment.id)}
 			<div class="aliment-card">
 				<img class="aliments-image" src={aliment.image} alt={aliment.name} />
 				<h2 class="aliment-name">{aliment.name}</h2>
 				<p class="aliment-price">Prix : {aliment.price} €</p>
-				<p>Quantité : {itemCounts[aliment.id] || 0}</p>
-				<button on:click={() => incrementCount(aliment.id)}>Ajouter</button>
+				<!-- <p>Quantité : {itemCounts[aliment.id] || 0}</p> -->
+				<!-- <button on:click={() => incrementCount(aliment.id)}>Ajouter</button> -->
 			</div>
 		{/each}
 	</div>
-	<p>Total : {picnicTotal()} €</p>
+	<!-- <p>Total : {picnicTotal()} €</p> -->
 </main>
 
 <style>
