@@ -3,9 +3,10 @@
 	<a href="/">Accueil</a>
 	<a href="/reservations">Réservations vélos</a>
 	<a href="/about">à propos</a>
-	<a href="/materiels">Matériels</a>
+	<a href="/equipment">Matériels</a>
 	<a href="/picnic">Pic-nique</a>
 	<a href="/sejours">séjours</a>
+	<a href="/login">Login</a>
 </nav>
 
 <svelte:head>

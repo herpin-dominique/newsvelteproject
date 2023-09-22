@@ -138,18 +138,6 @@
 		margin-bottom: 12px;
 	}
 
-	/* Styles pour la quantité de vélos sélectionnée */
-	.bike-input {
-		width: 50px;
-		padding: 4px;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		font-size: 14px;
-	}
-	.total {
-		background-color: #e63c12;
-	}
-
 	/* Styles pour le bouton de réserver */
 	.reserve-button {
 		display: block;

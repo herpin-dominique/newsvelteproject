@@ -1,25 +1,33 @@
 <script lang="ts">
+	import type { Cart } from 'routes/api/cart/+server';
+	import type { Product } from '$lib/server/Products';
 	export let data;
 
-	let itemCounts = {};
+	interface UserCart extends Cart {
+		total: number;
+	}
 
-	// function incrementCount(id) {
-	// 	if (!itemCounts[id]) {
-	// 		itemCounts[id] = 1;
-	// 	} else {
-	// 		itemCounts[id]++;
-	// 	}
-	// }
-	// function picnicTotal() {
-	// 	let total = 0;
-	// 	for (const id in itemCounts) {
-	// 		const aliment = food.find((item) => item.id === id);
-	// 		if (aliment) {
-	// 			total += aliment.price * itemCounts[id];
-	// 		}
-	// 	}
-	// 	return total;
-	// }
+	let userCart: UserCart;
+
+	async function addArticle(product: Product) {
+		const response = await fetch('/api/cart', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(product)
+		});
+
+		userCart = (await response.json()).cart;
+	}
+
+	$: if (userCart) {
+		userCart = {
+			...userCart,
+			total: userCart.items
+				.map((item) => item.product.price * item.number)
+				.reduce((partialSum, value) => partialSum + value, 0)
+		};
+		console.log(userCart);
+	}
 </script>
 
 <svelte:head>
@@ -33,14 +41,18 @@
 		festoyer après votre journée de ballade
 	</p>
 	<div class="background-image" />
+	<div>
+		<span>nombre d'article: {userCart ? userCart.items.length : 0}</span>
+		<span>total: {userCart ? userCart.total.toFixed(2) : 0}€</span>
+	</div>
 	<div class="aliments-list">
-		{#each data.Products as aliment (aliment.id)}
+		{#each data.Products as product (product.id)}
 			<div class="aliment-card">
-				<img class="aliments-image" src={aliment.image} alt={aliment.name} />
-				<h2 class="aliment-name">{aliment.name}</h2>
-				<p class="aliment-price">Prix : {aliment.price} €</p>
+				<img class="aliments-image" src={product.image} alt={product.name} />
+				<h2 class="aliment-name">{product.name}</h2>
+				<p class="aliment-price">Prix : {product.price} €</p>
 				<!-- <p>Quantité : {itemCounts[aliment.id] || 0}</p> -->
-				<!-- <button on:click={() => incrementCount(aliment.id)}>Ajouter</button> -->
+				<button on:click={() => addArticle(product)}>Ajouter</button>
 			</div>
 		{/each}
 	</div>
@@ -57,7 +69,7 @@
 	h1 {
 		font-size: 36px;
 		margin-bottom: 10px;
-		color: #333;
+		color: #3e202050;
 	}
 
 	p {
