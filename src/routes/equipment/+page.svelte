@@ -1,14 +1,17 @@
 <script lang="ts">
-	import type { Cart } from 'routes/api/cart/+server';
-	import type { Product } from '$lib/server/Products';
+	import type { Cart } from 'routes/api/cart/+server.js';
+	import type { Product } from '$lib/server/Products.js';
 	export let data;
 
 	interface UserCart extends Cart {
 		total: number;
 	}
 
-	let userCart: UserCart;
-	let userAddedItems: Product[] = [];
+	let userCart: UserCart = {
+		anonymousSession: '',
+		items: [],
+		total: 0
+	};
 
 	async function addArticle(product: Product) {
 		const response = await fetch('/api/cart', {
@@ -18,7 +21,6 @@
 		});
 
 		userCart = (await response.json()).cart;
-		userAddedItems.push(product);
 	}
 
 	$: if (userCart) {
@@ -30,6 +32,15 @@
 		};
 		console.log(userCart);
 	}
+	async function removeArticle(product: Product) {
+		const response = await fetch('/api/cart', {
+			method: 'DELETE',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(product)
+		});
+
+		userCart = (await response.json()).cart;
+	}
 </script>
 
 <svelte:head>
@@ -39,7 +50,7 @@
 	<h1>matériels de camping</h1>
 	<main>
 		<p>
-			Nous nous attachons à vous proposer le materiel indispensable pour vivre une experience
+			Nous nous attachons à vous proposer le matériel indispensable pour vivre une expérience
 			inoubliable !
 		</p>
 		<div class="background-image" />
@@ -47,23 +58,31 @@
 			<div class="cart-window">
 				<div>
 					<span>Nombre d'articles dans le panier : {userCart ? userCart.items.length : 0}</span>
-
-					<span>total dans le panier: {userCart ? userCart.total.toFixed(2) : 0}€</span>
+					<span>Total dans le panier : {userCart ? userCart.total.toFixed(2) : 0}€</span>
+					<span>Liste des articles dans le panier:</span>
 				</div>
-				<div class="equipment-list">
-					{#each data.Products as product (product.id)}
-						<div class="equipment-card">
-							<img class="equipments-image" src={product.image} alt={product.name} />
-							<h2 class="equipment-name">{product.name}</h2>
-							<p class="equipment-price">Prix : {product.price} €</p>
-							<!-- <p>Quantité : {itemCounts[aliment.id] || 0}</p> -->
-							<button on:click={() => addArticle(product)}>Ajouter</button>
-						</div>
-					{/each}
-				</div>
-
-				<!-- <p>Total : {picnicTotal()} €</p> -->
 			</div>
+		</div>
+		<div class="equipment-list">
+			{#each data.Products as product (product.id)}
+				<div class="equipment-card">
+					<img class="equipments-image" src={product.image} alt={product.name} />
+					<h2 class="equipment-name">{product.name}</h2>
+					<p class="equipment-price">Prix : {product.price} €</p>
+					<button on:click={() => addArticle(product)}>Ajouter</button>
+				</div>
+			{/each}
+			<!-- {#if userCart}
+				{#each userCart.items as item, index}
+					<div class="cart-item">
+						<img class="equipments-image" src={product.image} alt={product.name} />
+						<h2 class="equipment-name">{product.name}</h2>
+						<p class="equipment-price">Prix : {product.price} €</p>
+						<p>{item.product.name} - {item.number} x {item.product.price} €</p>
+						<button on:click={() => removeArticle(item.product)}>Retirer</button>
+					</div>
+				{/each}
+			{/if} -->
 		</div>
 	</main>
 </body>
@@ -98,7 +117,7 @@
 	}
 
 	.background-image {
-		background-image: url('votre-url-image.jpg');
+		background-image: url('');
 		background-size: cover;
 		height: 300px;
 		margin-bottom: 20px;

@@ -45,3 +45,27 @@ export async function POST({ request, locals }) {
 	// renvoyer le panier
 	return json({ cart });
 }
+
+//export async function DEL({ request, params, locals }) {
+//const productId = params.productId;
+//	const cartIndex = carts.findIndex((cart) => cart.anonymousSession === locals.session.anonyme);
+
+//	if (cartIndex >= 0) {
+//	const cart = carts[cartIndex];
+
+// Recherchez l'indice du produit dans le panier
+//	const productIndex = cart.items.findIndex((item) => item.product.id === productId);
+
+//if (productIndex >= 0) {
+// Supprimez le produit du panier
+//	cart.items.splice(productIndex, 1);
+
+// Mettez à jour le panier dans la mémoire
+//	carts[cartIndex] = cart;
+
+//		console.log('Produit supprimé du panier');
+//	}
+//	}
+
+//	return json({ success: true });
+//}
