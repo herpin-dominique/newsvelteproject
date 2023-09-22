@@ -132,14 +132,14 @@ export const Products: Product[] = [
 		category: 'equipment',
 		name: 'casque ',
 		price: 85,
-		image: '/static/images/casque vélo.jpg'
+		image: '/images/casque vélo.jpg'
 	},
 	{
 		id: 34,
 		category: 'equipment',
 		name: 'matelas ',
 		price: 85,
-		image: '/static/images/matelas de camping.jpg'
+		image: '/images/matelas de camping.jpg'
 	},
 	{
 		id: 35,
