@@ -59,7 +59,8 @@ describe('cart store', () => {
 					productId: product.id,
 					number: 3
 				}
-			]
+			],
+			total: 3 * product.price
 		});
 	});
 
@@ -68,7 +69,8 @@ describe('cart store', () => {
 
 		let state = get<Cart>(cart);
 		expect(state.summary).toStrictEqual({
-			items: []
+			items: [],
+			total: 0
 		});
 
 		cart.addProduct(product);
@@ -79,7 +81,8 @@ describe('cart store', () => {
 					productId: product.id,
 					number: 1
 				}
-			]
+			],
+			total: product.price
 		});
 	});
 
@@ -94,7 +97,8 @@ describe('cart store', () => {
 					productId: product.id,
 					number: 2
 				}
-			]
+			],
+			total: 2 * product.price
 		});
 	});
 });

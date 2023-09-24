@@ -9,11 +9,12 @@ export interface Cart {
 			productId: number;
 			number: number;
 		}[];
+		total: number;
 	};
 }
 
 export function createCart(initialItems: Product[] = []) {
-	const store = writable<Cart>({ items: initialItems, summary: { items: [] } });
+	const store = writable<Cart>({ items: initialItems, summary: { items: [], total: 0 } });
 
 	function addProduct(product: Product, quantity: number = 1) {
 		const currentState = get(store);
@@ -47,7 +48,12 @@ export function createCart(initialItems: Product[] = []) {
 						productId,
 						number
 					};
-				})
+				}),
+				total: productIds.reduce((partialSum, productId) => {
+					const products = cart.items.filter((product) => product.id === productId);
+					const subTotal = products.length * products[0].price;
+					return partialSum + subTotal;
+				}, 0)
 			};
 
 			return { ...cart, summary };

@@ -33,12 +33,19 @@
 	</p>
 	<div class="background-image" />
 	<div>
-		{#each $cart.summary.items as item}
+		{#if $cart.items.length > 0}
+			{#each $cart.summary.items as item}
+				<div>
+					<span>{getProductName(item.productId)}</span>
+					<span>x{item.number}</span>
+				</div>
+			{/each}
 			<div>
-				<span>{getProductName(item.productId)}</span>
-				<span>x{item.number}</span>
+				<span>Total: {$cart.summary.total.toFixed(2)}€</span>
 			</div>
-		{/each}
+		{:else}
+			<div>empty cart</div>
+		{/if}
 		<!-- <span>total: {$cart.summary.items}€</span> -->
 	</div>
 	<div class="aliments-list">
