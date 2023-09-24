@@ -1,13 +1,9 @@
 <script lang="ts">
-	import type { Cart } from 'routes/api/cart/+server';
+	import { createCart } from '$lib/stores/Cart';
 	import type { Product } from '$lib/server/Products';
 	export let data;
 
-	interface UserCart extends Cart {
-		total: number;
-	}
-
-	let userCart: UserCart;
+	let cart = createCart();
 
 	async function addArticle(product: Product) {
 		const response = await fetch('/api/cart', {
@@ -16,18 +12,13 @@
 			body: JSON.stringify(product)
 		});
 
-		userCart = (await response.json()).cart;
+		if (response.status === 200) cart.addProduct(product);
 	}
 
-	$: if (userCart) {
-		userCart = {
-			...userCart,
-			total: userCart.items
-				.map((item) => item.product.price * item.number)
-				.reduce((partialSum, value) => partialSum + value, 0)
-		};
-		console.log(userCart);
+	function getProductName(id: number) {
+		return data.Products.find((product) => product.id === id)?.name;
 	}
+	$: console.log($cart);
 </script>
 
 <svelte:head>
@@ -42,8 +33,13 @@
 	</p>
 	<div class="background-image" />
 	<div>
-		<span>nombre d'article: {userCart ? userCart.items.length : 0}</span>
-		<span>total: {userCart ? userCart.total.toFixed(2) : 0}€</span>
+		{#each $cart.summary.items as item}
+			<div>
+				<span>{getProductName(item.productId)}</span>
+				<span>x{item.number}</span>
+			</div>
+		{/each}
+		<!-- <span>total: {$cart.summary.items}€</span> -->
 	</div>
 	<div class="aliments-list">
 		{#each data.Products as product (product.id)}
