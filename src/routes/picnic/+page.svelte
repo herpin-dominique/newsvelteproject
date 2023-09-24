@@ -6,7 +6,17 @@
 	let cart = createCart();
 
 	async function addArticle(product: Product) {
-		const response = await fetch('/api/cart', {
+		const response = await fetch('/api/cart/add', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(product)
+		});
+
+		if (response.status === 200) cart.addProduct(product);
+	}
+
+	async function removeArticle(product: Product) {
+		const response = await fetch('/api/cart/remove', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(product)
@@ -18,7 +28,6 @@
 	function getProductName(id: number) {
 		return data.Products.find((product) => product.id === id)?.name;
 	}
-	$: console.log($cart);
 </script>
 
 <svelte:head>
