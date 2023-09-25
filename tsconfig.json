@@ -15,7 +15,7 @@
 			"$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"]
 		},
-		"types": ["vitest/globals"]
+		"types": ["vitest/globals","@types/js-cookie"]
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
