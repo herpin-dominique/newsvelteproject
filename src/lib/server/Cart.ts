@@ -32,3 +32,21 @@ export function addProduct(anonymousSession: string, product: Product) {
 
 	return cart;
 }
+
+export function removeProduct(anonymousSession: string, product: Product) {
+	const cart = carts.find((cart) => cart.anonymousSession === anonymousSession);
+
+	if (!cart) {
+		return null; // Le panier n'existe pas, rien à retirer
+	}
+
+	// Recherche de l'index de l'article dans le panier
+	const index = cart.items.findIndex((item) => item.product.id === product.id);
+
+	if (index !== -1) {
+		// Si l'article est trouvé dans le panier, retirez-le
+		cart.items.splice(index, 1);
+	}
+
+	return cart;
+}

@@ -22,7 +22,7 @@
 			body: JSON.stringify(product)
 		});
 
-		if (response.status === 200) cart.addProduct(product);
+		if (response.status === 200) cart.removeProduct(product);
 	}
 
 	function getProductName(id: number) {
@@ -65,6 +65,7 @@
 				<p class="aliment-price">Prix : {product.price} €</p>
 				<!-- <p>Quantité : {itemCounts[aliment.id] || 0}</p> -->
 				<button on:click={() => addArticle(product)}>Ajouter</button>
+				<button on:click={() => removeArticle(product)}>Retirer</button>
 			</div>
 		{/each}
 	</div>

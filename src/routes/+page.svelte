@@ -1,3 +1,9 @@
+<script lang="ts">
+	// autres imports...
+
+	import CookieBanner from '../lib/CookieBanner.svelte';
+</script>
+
 <svelte:head>
 	<title>Glamping - Séjours tout compris</title>
 </svelte:head>
@@ -5,6 +11,7 @@
 	<header>
 		<h1>Bienvenue sur notre site. Venez vivre une belle aventure avec nous</h1>
 		<a href="#offres" class="button primary">Découvrez nos offres</a>
+		<CookieBanner />
 	</header>
 
 	<main>
