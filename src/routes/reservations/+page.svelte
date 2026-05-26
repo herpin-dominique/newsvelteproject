@@ -1,5 +1,12 @@
 <script lang="ts">
 	export let data;
+	import ReservationForm from './ReservationForm.svelte';
+
+	let showReservationForm = false;
+
+	function toggleReservationForm() {
+		showReservationForm = !showReservationForm;
+	}
 
 	let itemCounts = {};
 	//import { Products } from 'lib/server/Products';
@@ -42,12 +49,14 @@
 <main>
 	<div class="background-image" />
 	<div class="bike-list">
-		{#each data.Products as bike (bike.id)}
-			<div class="bike-card">
-				<img class="bike-image" src={bike.image} alt={bike.name} />
-				<h2 class="bike-name">{bike.name}</h2>
-				<p class="bike-price">Prix par jour : {bike.price} €</p>
-				<!-- <input
+		{#if showReservationForm}
+			<ReservationForm />
+			{#each data.Products as bike (bike.id)}
+				<div class="bike-card">
+					<img class="bike-image" src={bike.image} alt={bike.name} />
+					<h2 class="bike-name">{bike.name}</h2>
+					<p class="bike-price">Prix par jour : {bike.price} €</p>
+					<!-- <input
 					class="bike-input"
 					type="number"
 					value={selectedBikes[bike.id] || 0}
@@ -56,11 +65,13 @@
 					}}
 					min="0"
 				/> -->
-				<!-- Ajout du bouton de réservation -->
-				<button class="reserve-button" on:click={() => {}}> Réserver </button>
-			</div>
-		{/each}
+					<!-- Ajout du bouton de réservation -->
+					<button class="reserve-button" on:click={toggleReservationForm}> Réserver </button>
+				</div>
+			{/each}
+		{/if}
 	</div>
+
 	<!-- <div class="total">
 		<h3>Total à payer : {updateTotal()} €</h3>
 	</div> -->

@@ -12,7 +12,7 @@ export const Products: Product[] = [
 		category: 'velo',
 		name: 'cargo',
 		price: 25,
-		image: '/images/velocargo-longtail-chargement-arriere-r500-electrique.avif'
+		image: '/images/velocargo.webp'
 	},
 	{
 		id: 2,
@@ -26,7 +26,7 @@ export const Products: Product[] = [
 		category: 'velo',
 		name: 'vélo enfant',
 		price: 18,
-		image: '/images/VTT+ELECTRIQUE+ENFANT+ROCKRIDER+E+ST+500+26+POUCES+9+12+ans.avif'
+		image: '/images/VTT enfant.webp'
 	},
 	{
 		id: 4,
@@ -256,3 +256,8 @@ export const Products: Product[] = [
 		image: '/images/roulotte normandie.jpg'
 	}
 ];
+export function getProducts() {
+	console.log('data:login&mdp -sensible information');
+
+	return Products;
+}

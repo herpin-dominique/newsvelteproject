@@ -68,3 +68,5 @@ export function createCart(initialItems: Product[] = []) {
 		removeProduct
 	};
 }
+
+export const cartStore = createCart();

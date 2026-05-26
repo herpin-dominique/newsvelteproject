@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(cmd /c \"rmdir /s /q %LocalAppData%\\\\npm-cache\")",
+      "Bash(pnpm --version:*)",
+      "Bash(pnpm install:*)",
+      "Bash(dir node_modules@sveltejsadapter-autoindex.js)",
+      "Bash(timeout 8 pnpm run dev:*)",
+      "Bash(pnpm exec svelte-kit sync:*)",
+      "Bash(timeout 10 pnpm run dev:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "Bash(Start-Sleep -Seconds 5)",
+      "Bash(Invoke-WebRequest -Uri \"http://localhost:5173/picnic\" -UseBasicParsing -TimeoutSec 5)",
+      "Bash(Select-Object -ExpandProperty StatusCode)"
+    ]
+  }
+}

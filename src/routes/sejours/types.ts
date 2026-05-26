@@ -5,3 +5,10 @@ export async function load() {
 		Products: Products.filter((product) => product.category === 'journey')
 	};
 }
+export interface Stay {
+	name: string;
+	address: string;
+	startDate: Date;
+	endDate: Date;
+	numberOfPeople: number;
+}
