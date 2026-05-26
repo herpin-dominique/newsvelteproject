@@ -33,6 +33,10 @@ export function addProduct(anonymousSession: string, product: Product) {
 	return cart;
 }
 
+export function getCart(anonymousSession: string): Cart | undefined {
+	return carts.find((cart) => cart.anonymousSession === anonymousSession);
+}
+
 export function removeProduct(anonymousSession: string, product: Product) {
 	const cart = carts.find((cart) => cart.anonymousSession === anonymousSession);
 
