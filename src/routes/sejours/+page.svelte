@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { Sejour } from '$lib/server/Sejours';
+
+	export let data: { sejours: Sejour[] };
 
 	let selectedCategory = 'all';
 	let searchQuery = '';
@@ -12,90 +15,7 @@
 		{ id: 'famille', label: 'En famille' }
 	];
 
-	const sejours = [
-		{
-			id: 1,
-			name: 'Plages du Débarquement',
-			category: 'histoire',
-			description: 'Parcourez les sites historiques du D-Day à vélo, de Utah Beach à Sword Beach.',
-			duration: '3 jours',
-			distance: '85 km',
-			difficulty: 'Facile',
-			price: 450,
-			image: '/images/plage-debarquement.jpg',
-			highlights: ['Musée du Débarquement', 'Cimetière américain', 'Pointe du Hoc'],
-			accommodation: "Chambre d'hôtes"
-		},
-		{
-			id: 2,
-			name: 'Suisse Normande',
-			category: 'nature',
-			description:
-				'Découvrez les paysages vallonnés et les gorges spectaculaires de la Suisse Normande.',
-			duration: '5 jours',
-			distance: '120 km',
-			difficulty: 'Sportif',
-			price: 680,
-			image: '/images/visuelcartevoievertedelasuissenormande.jpg',
-			highlights: ["Roche d'Oëtre", 'Clécy', "Pont-d'Ouilly"],
-			accommodation: 'Bulle transparente'
-		},
-		{
-			id: 3,
-			name: 'Côte Fleurie',
-			category: 'gastronomie',
-			description: 'De Honfleur à Cabourg, savourez les trésors de la côte normande.',
-			duration: '4 jours',
-			distance: '90 km',
-			difficulty: 'Facile',
-			price: 590,
-			image: '/images/ASNELLESPLAGE.jpg',
-			highlights: ['Honfleur', 'Deauville', 'Fromages AOP'],
-			accommodation: 'Roulotte'
-		},
-		{
-			id: 4,
-			name: 'Escapade en Famille',
-			category: 'famille',
-			description:
-				'Un séjour adapté aux familles avec des étapes courtes et des activités ludiques.',
-			duration: '3 jours',
-			distance: '45 km',
-			difficulty: 'Très facile',
-			price: 520,
-			image: '/images/baladde vélo plage débarquement.jpg',
-			highlights: ['Parcours sécurisé', 'Ferme pédagogique', 'Plage'],
-			accommodation: 'Cabane dans les arbres'
-		},
-		{
-			id: 5,
-			name: 'Route du Camembert',
-			category: 'gastronomie',
-			description: "Traversez le Pays d'Auge et ses vergers, dégustez cidre et fromages.",
-			duration: '4 jours',
-			distance: '100 km',
-			difficulty: 'Modéré',
-			price: 620,
-			image: '/images/camembert.jpg',
-			highlights: ['Fromageries', 'Cidreries', 'Manoirs normands'],
-			accommodation: 'Tipi'
-		},
-		{
-			id: 6,
-			name: 'Aventure Bocage',
-			category: 'nature',
-			description: 'Immersion totale dans le bocage normand, entre haies et chemins creux.',
-			duration: '6 jours',
-			distance: '150 km',
-			difficulty: 'Sportif',
-			price: 780,
-			image: '/images/destinationsbois.jpg',
-			highlights: ['Chemins ruraux', 'Faune sauvage', 'Villages authentiques'],
-			accommodation: 'Tente de luxe'
-		}
-	];
-
-	$: filteredSejours = sejours.filter((sejour) => {
+	$: filteredSejours = data.sejours.filter((sejour) => {
 		const matchesCategory = selectedCategory === 'all' || sejour.category === selectedCategory;
 		const matchesSearch =
 			sejour.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
