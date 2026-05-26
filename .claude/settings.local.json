@@ -19,7 +19,9 @@
       "mcp__plugin_playwright_playwright__browser_resize",
       "Bash(Start-Sleep -Seconds 5)",
       "Bash(Invoke-WebRequest -Uri \"http://localhost:5173/picnic\" -UseBasicParsing -TimeoutSec 5)",
-      "Bash(Select-Object -ExpandProperty StatusCode)"
+      "Bash(Select-Object -ExpandProperty StatusCode)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

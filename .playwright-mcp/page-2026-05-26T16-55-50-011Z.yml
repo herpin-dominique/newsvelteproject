@@ -1,0 +1,61 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "🚴 Normandie Vélo & Séjours" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: 🚴
+        - generic [ref=e8]:
+          - generic [ref=e9]: Normandie
+          - generic [ref=e10]: Vélo & Séjours
+      - generic [ref=e11]:
+        - link "Accueil" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "Séjours" [ref=e13] [cursor=pointer]:
+          - /url: /sejours
+        - link "Location Vélos" [ref=e14] [cursor=pointer]:
+          - /url: /reservations
+        - link "Pique-nique" [ref=e15] [cursor=pointer]:
+          - /url: /picnic
+        - link "Équipements" [ref=e16] [cursor=pointer]:
+          - /url: /equipment
+        - link "À propos" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Connexion" [ref=e18] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e19]:
+    - heading "500" [level=1] [ref=e20]
+    - paragraph [ref=e21]: Internal Error
+  - contentinfo [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - generic [ref=e25]: 🚴
+        - heading "Normandie Vélo & Séjours" [level=3] [ref=e26]
+        - paragraph [ref=e27]: Découvrez la Normandie autrement, à vélo et en pleine nature.
+      - generic [ref=e28]:
+        - heading "Navigation" [level=4] [ref=e29]
+        - link "Nos Séjours" [ref=e30] [cursor=pointer]:
+          - /url: /sejours
+        - link "Location Vélos" [ref=e31] [cursor=pointer]:
+          - /url: /reservations
+        - link "Pique-nique" [ref=e32] [cursor=pointer]:
+          - /url: /picnic
+        - link "À propos" [ref=e33] [cursor=pointer]:
+          - /url: /about
+      - generic [ref=e34]:
+        - heading "Contact" [level=4] [ref=e35]
+        - paragraph [ref=e36]: 📍 Normandie, France
+        - paragraph [ref=e37]: 📞 +33 6 00 00 00 00
+        - paragraph [ref=e38]: ✉️ contact@normandie-velo.fr
+      - generic [ref=e39]:
+        - heading "Suivez-nous" [level=4] [ref=e40]
+        - generic [ref=e41]:
+          - link "Facebook" [ref=e42] [cursor=pointer]:
+            - /url: "#"
+            - text: FB
+          - link "Instagram" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - text: IG
+          - link "Twitter" [ref=e44] [cursor=pointer]:
+            - /url: "#"
+            - text: TW
+    - paragraph [ref=e46]: © 2024 Normandie Vélo & Séjours. Tous droits réservés.

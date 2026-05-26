@@ -1,0 +1,167 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "🚴 Normandie Vélo & Séjours" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: 🚴
+        - generic [ref=e8]:
+          - generic [ref=e9]: Normandie
+          - generic [ref=e10]: Vélo & Séjours
+      - generic [ref=e11]:
+        - link "Accueil" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "Séjours" [ref=e13] [cursor=pointer]:
+          - /url: /sejours
+        - link "Location Vélos" [ref=e14] [cursor=pointer]:
+          - /url: /reservations
+        - link "Pique-nique" [ref=e15] [cursor=pointer]:
+          - /url: /picnic
+        - link "Équipements" [ref=e16] [cursor=pointer]:
+          - /url: /equipment
+        - link "À propos" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Connexion" [ref=e18] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - img "Équipements vélo" [ref=e22]
+      - generic [ref=e24]:
+        - generic [ref=e25]: Matériel de qualité
+        - heading "Équipements & Accessoires" [level=1] [ref=e26]
+        - paragraph [ref=e27]: Tout le nécessaire pour partir l'esprit libre — vélo, camping, sécurité.
+    - generic [ref=e28]:
+      - main [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: 🎒
+          - generic [ref=e32]:
+            - heading "Louez votre équipement" [level=2] [ref=e33]
+            - paragraph [ref=e34]: Ajoutez les équipements à votre panier et commandez en même temps que votre vélo.
+        - generic [ref=e35]:
+          - heading "🚴 Équipement vélo" [level=2] [ref=e36]:
+            - generic [ref=e37]: 🚴
+            - text: Équipement vélo
+          - generic [ref=e38]:
+            - article [ref=e39]:
+              - img "siège enfant" [ref=e41]
+              - generic [ref=e42]:
+                - heading "siège enfant" [level=3] [ref=e43]
+                - paragraph [ref=e44]: 85.00 €
+              - button "Ajouter" [ref=e46] [cursor=pointer]:
+                - img [ref=e47]
+            - article [ref=e49]:
+              - img "poncho vélo imperméable" [ref=e51]
+              - generic [ref=e52]:
+                - heading "poncho vélo imperméable" [level=3] [ref=e53]
+                - paragraph [ref=e54]: 85.00 €
+              - button "Ajouter" [ref=e56] [cursor=pointer]:
+                - img [ref=e57]
+            - article [ref=e59]:
+              - img "remorque vélo" [ref=e61]
+              - generic [ref=e62]:
+                - heading "remorque vélo" [level=3] [ref=e63]
+                - paragraph [ref=e64]: 85.00 €
+              - button "Ajouter" [ref=e66] [cursor=pointer]:
+                - img [ref=e67]
+            - article [ref=e69]:
+              - img "sacoches" [ref=e71]
+              - generic [ref=e72]:
+                - heading "sacoches" [level=3] [ref=e73]
+                - paragraph [ref=e74]: 11.00 €
+              - button "Ajouter" [ref=e76] [cursor=pointer]:
+                - img [ref=e77]
+        - generic [ref=e79]:
+          - heading "⛺ Camping & Bivouac" [level=2] [ref=e80]:
+            - generic [ref=e81]: ⛺
+            - text: Camping & Bivouac
+          - generic [ref=e82]:
+            - article [ref=e83]:
+              - img "sac de couchage" [ref=e85]
+              - generic [ref=e86]:
+                - heading "sac de couchage" [level=3] [ref=e87]
+                - paragraph [ref=e88]: 10.00 €
+              - button "Ajouter" [ref=e90] [cursor=pointer]:
+                - img [ref=e91]
+            - article [ref=e93]:
+              - img "matelas" [ref=e95]
+              - generic [ref=e96]:
+                - heading "matelas" [level=3] [ref=e97]
+                - paragraph [ref=e98]: 85.00 €
+              - button "Ajouter" [ref=e100] [cursor=pointer]:
+                - img [ref=e101]
+            - article [ref=e103]:
+              - img "popotte" [ref=e105]
+              - generic [ref=e106]:
+                - heading "popotte" [level=3] [ref=e107]
+                - paragraph [ref=e108]: 85.00 €
+              - button "Ajouter" [ref=e110] [cursor=pointer]:
+                - img [ref=e111]
+            - article [ref=e113]:
+              - img "lampe torche" [ref=e115]
+              - generic [ref=e116]:
+                - heading "lampe torche" [level=3] [ref=e117]
+                - paragraph [ref=e118]: 15.00 €
+              - button "Ajouter" [ref=e120] [cursor=pointer]:
+                - img [ref=e121]
+            - article [ref=e123]:
+              - img "rechaud à gaz" [ref=e125]
+              - generic [ref=e126]:
+                - heading "rechaud à gaz" [level=3] [ref=e127]
+                - paragraph [ref=e128]: 5.00 €
+              - button "Ajouter" [ref=e130] [cursor=pointer]:
+                - img [ref=e131]
+        - generic [ref=e133]:
+          - heading "🪖 Sécurité" [level=2] [ref=e134]:
+            - generic [ref=e135]: 🪖
+            - text: Sécurité
+          - article [ref=e137]:
+            - img "casque" [ref=e139]
+            - generic [ref=e140]:
+              - heading "casque" [level=3] [ref=e141]
+              - paragraph [ref=e142]: 85.00 €
+            - button "Ajouter" [ref=e144] [cursor=pointer]:
+              - img [ref=e145]
+      - complementary [ref=e147]:
+        - generic [ref=e148]:
+          - generic [ref=e149]:
+            - generic [ref=e150]: 🛒
+            - heading "Mon panier" [level=3] [ref=e151]
+          - button "Ouvrir/fermer le panier" [ref=e152] [cursor=pointer]:
+            - img [ref=e153]
+        - generic [ref=e155]:
+          - generic [ref=e156]: 🎒
+          - paragraph [ref=e157]: Votre panier est vide
+          - paragraph [ref=e158]: Ajoutez des équipements depuis la liste
+  - contentinfo [ref=e159]:
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - generic [ref=e162]: 🚴
+        - heading "Normandie Vélo & Séjours" [level=3] [ref=e163]
+        - paragraph [ref=e164]: Découvrez la Normandie autrement, à vélo et en pleine nature.
+      - generic [ref=e165]:
+        - heading "Navigation" [level=4] [ref=e166]
+        - link "Nos Séjours" [ref=e167] [cursor=pointer]:
+          - /url: /sejours
+        - link "Location Vélos" [ref=e168] [cursor=pointer]:
+          - /url: /reservations
+        - link "Pique-nique" [ref=e169] [cursor=pointer]:
+          - /url: /picnic
+        - link "À propos" [ref=e170] [cursor=pointer]:
+          - /url: /about
+      - generic [ref=e171]:
+        - heading "Contact" [level=4] [ref=e172]
+        - paragraph [ref=e173]: 📍 Normandie, France
+        - paragraph [ref=e174]: 📞 +33 6 00 00 00 00
+        - paragraph [ref=e175]: ✉️ contact@normandie-velo.fr
+      - generic [ref=e176]:
+        - heading "Suivez-nous" [level=4] [ref=e177]
+        - generic [ref=e178]:
+          - link "Facebook" [ref=e179] [cursor=pointer]:
+            - /url: "#"
+            - text: FB
+          - link "Instagram" [ref=e180] [cursor=pointer]:
+            - /url: "#"
+            - text: IG
+          - link "Twitter" [ref=e181] [cursor=pointer]:
+            - /url: "#"
+            - text: TW
+    - paragraph [ref=e183]: © 2024 Normandie Vélo & Séjours. Tous droits réservés.
