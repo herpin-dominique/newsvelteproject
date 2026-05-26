@@ -10,7 +10,7 @@
 		image: string;
 	}
 
-	export let data: { Products: Product[] };
+	export let data: { Products: Product[]; AllProducts: Product[] };
 
 	const cart = cartStore;
 	let cartOpen = true;
@@ -36,7 +36,7 @@
 	}
 
 	function getProductById(id: number): Product | undefined {
-		return data.Products.find((p: Product) => p.id === id);
+		return data.AllProducts.find((p: Product) => p.id === id);
 	}
 
 	// Accès réactif à la quantité via le préfixe $
